@@ -138,6 +138,10 @@ platformApiRoutes.use("/products", productRouter);
 // If you are adding routes outside of the /api path,
 // remember to also add a proxy rule for them in /frontend/vite.config.js
 app.use("/api", platformApiRoutes);
+app.get('/test', async (req, res) => {
+  return res.status(401).json({ message: 'Platform client is not available' });
+  
+});
 
 // Serve the React app for all other routes
 app.get("*", (req, res) => {
